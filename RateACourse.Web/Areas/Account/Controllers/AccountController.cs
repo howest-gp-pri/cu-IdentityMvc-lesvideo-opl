@@ -88,5 +88,10 @@ namespace RateACourse.Web.Areas.Account.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index","Home", new {Area = "" });
         }
+        [HttpGet]
+        public IActionResult AccesDenied() 
+        {
+            return View();        
+        }
     }
 }

@@ -9,6 +9,7 @@ using RateACourse.Core.Entities;
 using RateACourse.Core.Data;
 using RateACourse.Web.ViewModels;
 using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RateACourse.Web.Controllers
 {
@@ -55,6 +56,7 @@ namespace RateACourse.Web.Controllers
         }
 
         // GET: Courses/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();

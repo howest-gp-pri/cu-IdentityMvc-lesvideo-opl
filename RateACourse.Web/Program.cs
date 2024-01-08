@@ -29,6 +29,13 @@ namespace oe_h05_EFCore_RateAMovie_opl_Afst
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+            //set identity applicationCookies
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/account/account/login";
+                options.AccessDeniedPath = "/account/account/AccesDenied";
+                options.LogoutPath = "/account/account/Logout";
+            });
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
@@ -46,6 +53,7 @@ namespace oe_h05_EFCore_RateAMovie_opl_Afst
 
             app.UseRouting();
             //activates the logged in User features
+
             app.UseAuthentication();
             app.UseAuthorization();
 
